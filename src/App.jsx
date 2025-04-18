@@ -7,7 +7,7 @@ const App = () => {
 
   const fetchMovies = async () => {
     const res = await fetch(
-      `http://www.omdbapi.com/?s=${query}&apikey=6eb79ec2`
+      `https://www.omdbapi.com/?s=${query}&apikey=6eb79ec2`
     );
     const data = await res.json();
 
@@ -15,7 +15,7 @@ const App = () => {
       const detailedMovies = await Promise.all(
         data.Search.map(async (movie) => {
           const res = await fetch(
-            `http://www.omdbapi.com/?i=${movie.imdbID}&apikey=6eb79ec2`
+            `https://www.omdbapi.com/?i=${movie.imdbID}&apikey=6eb79ec2`
           );
           const fullData = await res.json();
           return fullData;
