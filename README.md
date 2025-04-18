@@ -1,6 +1,5 @@
 ---
 
-```markdown
 # 🎬 Movie Search App
 
 A simple React.js application that allows users to search for movies using the [OMDb API](https://www.omdbapi.com/).  
