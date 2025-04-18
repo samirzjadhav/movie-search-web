@@ -15,6 +15,7 @@ const MovieCard = ({ movie }) => {
       <h3 className="text-lg font-semibold">{movie.Title}</h3>
       <p className="text-gray-500">{movie.Year}</p>
       <p className="text-sm uppercase text-gray-400">{movie.Type}</p>
+      <p className="text-sm uppercase text-gray-400">{movie.Genre}</p>
     </div>
   );
 };

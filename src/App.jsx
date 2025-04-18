@@ -12,8 +12,18 @@ const App = () => {
     const data = await res.json();
 
     if (data.Search) {
-      setMovies(data.Search);
-      console.log("Movies found:", data.Search);
+      const detailedMovies = await Promise.all(
+        data.Search.map(async (movie) => {
+          const res = await fetch(
+            `http://www.omdbapi.com/?i=${movie.imdbID}&apikey=6eb79ec2`
+          );
+          const fullData = await res.json();
+          return fullData;
+        })
+      );
+
+      setMovies(detailedMovies);
+      console.log("Full Movie Data with Genre:", detailedMovies);
     } else {
       setMovies([]);
       console.log("No results found:", data);
